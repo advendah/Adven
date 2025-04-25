@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Pio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff8a80;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff5252;
+    }
+    .choices button {
+      display: block;
+      margin: 10px auto;
+      background-color: #f06292;
+    }
+    .footer {
+      margin-top: 30px;
+      font-style: italic;
+      color: #ccc;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://ia802608.us.archive.org/3/items/AThousandYearsByChristinaPerri_201912/A%20Thousand%20Years%20-%20Christina%20Perri.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="container">
+    <div class="slide active" id="slide1">
+      <h1>Untuk Pio</h1>
+      <p>
+        Kamu mungkin gak sadar...<br>
+        Tapi setiap kali kamu baik ke aku,<br>
+        rasanya seperti dunia berhenti sejenak — dan bilang,<br>
+        "Adventus, ini orang yang harus kamu jaga." ❤️
+      </p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+
+    <div class="slide" id="slide2">
+      <p>
+        Aku belum bisa ngasih banyak hal... 🥺<br>
+        Belum bisa hadir setiap waktu.<br>
+        Tapi kamu harus tahu...<br>
+        Setiap kata dan perhatianmu selalu aku simpan,<br>
+        Di tempat paling lembut dalam hatiku. ✨
+      </p>
+      <button onclick="nextSlide()">Lanjut</button>
+    </div>
+
+    <div class="slide" id="slide3">
+      <p>
+        Aku gak tau kamu bakal baca ini sampai akhir atau enggak,<br>
+        Tapi kalau iya... itu aja udah cukup buat bikin hatiku hangat.<br><br>
+        Sekarang aku mau tanya satu hal:<br>
+        <strong>Apa kamu juga ngerasa hangat tiap kali kita ngobrol? 💬</strong>
+      </p>
+      <div class="choices">
+        <button onclick="showAnswer('Aku juga ngerasa hangat tiap kali kamu hadir. Dan itu... lebih dari cukup. 🫶')">Iya, aku ngerasain itu.</button>
+        <button onclick="showAnswer('Aku belum yakin... tapi tiap kata-katamu bikin aku diem lebih lama dari biasanya. 💭')">Belum tahu... tapi rasanya beda.</button>
+      </div>
+    </div>
+
+    <div class="slide" id="slide4">
+      <p id="answer"></p>
+      <p>
+        Terima kasih, Pio 💌<br>
+        Karena tanpa kamu sadari, kamu adalah jeda paling manis<br>
+        Di tengah kalimat-kalimat lelahku. 🌙
+      </p>
+      <div class="footer">
+        Dari Adventus Simanjuntak, yang selalu mengingatmu. 🥰
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    function nextSlide() {
+      document.getElementById(`slide${currentSlide}`).classList.remove('active');
+      currentSlide++;
+      document.getElementById(`slide${currentSlide}`).classList.add('active');
+    }
+    function showAnswer(text) {
+      document.getElementById('slide3').classList.remove('active');
+      document.getElementById('slide4').classList.add('active');
+      document.getElementById('answer').innerText = text;
+    }
+  </script>
+</body>
+</html>
